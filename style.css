@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+:root {
+    --dark-indigo: #2C2C54;
+    --purple-gray: #474787;
+    --gray: #AAABB8;
+    --light-gray: #ECECEC;
+    --red: #F7504D;
+    --dark-red: #D6423E;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans' ,monospace;
+    display: flex;
+}
+
+h1 {
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+/* Side Bar */
+nav {
+    background-color: var(--dark-indigo);
+    width: 12vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+    gap: 7px;
+}
+
+nav div {
+    border-radius: 4px;
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color:  var(--light-gray);
+    font-size: 18px;
+    font-weight: 500;
+}
+nav div:hover {
+    background-color: var(--purple-gray);
+    cursor: pointer;
+}
+
+nav svg {
+    width: 32px;
+    height: 32px;
+}
+nav path {
+    fill: white;
+}
+
+
+/* Main Section */
+main {
+    background-color: white;
+    width: 100vw;
+}
+
+#card {
+    border: 1px solid var(--gray);
+    margin: 25px 130px;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+form {
+    margin-bottom: 40px;
+}
+
+form input {
+    border: 1px solid var(--gray);
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+form input:focus {
+    outline: none;
+}
+
+form button {
+    padding: 10px 14px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--dark-indigo);
+    color: var(--light-gray);
+}
+form button:hover {
+    cursor: pointer;
+    background-color: var(--purple-gray);
+}
+
+.proceso {
+    display: flex;
+    align-items: center;
+}
+
+ul {
+    border: 1px solid var(--gray);
+    list-style: none;
+}
+
+ul li {
+    border-bottom: 1px solid var(--gray);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+ul li:last-child {
+    border-bottom: none
+}
+
+ul li .buttons-container {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+}
+
+ul li button {
+    width: 42px;
+    height: 38px;
+    padding: 10px 14px;
+    color: var(--light-gray);
+    border: none;
+    border-radius: 4px;
+    background-color: var(--red);
+}
+
+button.detener,
+button.delete {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+button .triangle {
+    width: 0; 
+    height: 0; 
+    border-left: 13px solid white;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+
+ul li button:hover, 
+ul li button:focus {
+    background-color: var(--dark-red);
+}
+
+/* Process Table */
+table {
+    table-layout: fixed;
+    vertical-align: middle;
+}
+
+table .state {
+    display: flex;
+    align-items: center;
+}
+
+table .state .circle {
+    background: hsl(0 0% 100% / 1);
+    margin-left: 12px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 hsl(0 0% 100% / 1);
+	height: 21px;
+	width: 21px;
+}
+table .state .circle.new {
+    background: hsl(0 0% 100% / 1);
+    margin-left: 12px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 hsl(0 0% 93% / 1);
+	height: 21px;
+	width: 21px;
+}
+table .state .circle.ready {
+    background: hsl(0 0% 100% / 1);
+    margin-left: 12px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 hsl(0 0% 100% / 1);
+	height: 21px;
+	width: 21px;
+}
+table .state .circle.waiting {
+    background: hsl(0 0% 100% / 1);
+    margin-left: 12px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 hsl(0 0% 100% / 1);
+	height: 21px;
+	width: 21px;
+}
+table .state .circle.running {
+    background: hsl(120 100% 50% / 1);
+    margin-left: 12px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 hsl(120 100% 50% / 1);
+	height: 21px;
+	width: 21px;
+	transform: scale(1);
+	animation: pulse 1s infinite;
+}
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 hsl(120 100% 50% / 0.7);
+	}
+	
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px hsl(120 100% 50% / 0);
+	}
+	
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 hsl(120 100% 50% / 0);
+	}
+}
+
+table svg.admit {
+    width: 48px;
+    height: 48px;
+}
+table svg.run {
+    width: 46px;
+    height: 46px;
+}
+table svg.stop {
+    width: 52px;
+    height: 52px;
+}
+table svg.delete {
+    width: 62px;
+    height: 62px;
+}
+table svg path {
+    fill: var(--red);
+}
+table svg:hover {
+    cursor: pointer; 
+}
+table svg path:hover {
+    fill: var(--dark-red);
+}
+
+table .buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+
+
